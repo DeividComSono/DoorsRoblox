@@ -1,6 +1,6 @@
 local Plr = game.Players.LocalPlayer
  
-local enableDamage = false
+local enableDamage = true
  
 local currentLoadedRoom = workspace.CurrentRooms[game:GetService("ReplicatedStorage").GameData.LatestRoom.Value]
 local eyes = game:GetObjects("rbxassetid://11388969546")[1]
