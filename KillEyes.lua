@@ -17,7 +17,7 @@ eyes.CFrame=(
  
 eyes.Parent = workspace
 eyes.Ambience:Play()
-task.wait(.5)
+task.wait(1)
 eyes.Attachment.Eyes.Enabled = true
  
 local hum=game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
