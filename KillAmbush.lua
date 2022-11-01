@@ -49,7 +49,7 @@ local entity = Creator.createEntity({
 				},
 			},
 		},
-		CustomDialog = {"You died to Ambush.", "You might need to hop in and out of your hiding spot a couple of times"}
+		CustomDialog = {"You died to who you call Ambush...", "It is a tricky one.", "Use what you learned from Rush!"}
 	})
 
 	entity.Debug.OnEntitySpawned = function(entityModel)
