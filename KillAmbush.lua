@@ -27,8 +27,8 @@ local entity = Creator.createEntity({
 		Jumpscare = {
 			true, -- Enabled ('false' if you don't want jumpscare)
 			{
-				Image1 = "rbxassetid://10483855823",
-				Image2 = "rbxassetid://10483855823",
+				Image1 = "rbxassetid://10110576663",
+				Image2 = "rbxassetid://10110576663",
 				Shake = true,
 				Sound1 = {
 					10483790459,
