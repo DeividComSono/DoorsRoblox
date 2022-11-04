@@ -8,7 +8,7 @@ getgenv().Death = false
 
 local function SpawnEntity()
 	if char:FindFirstChild("Spawner") then
-	char.Spawner:Destroy()
+	char:FindFirstChild("Spawner"):Destroy()
 	tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.45}):Play()
 	local entity = Creator.createEntity({
 		CustomName = "A-60", -- Custom name of your entity
