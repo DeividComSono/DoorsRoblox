@@ -30,7 +30,7 @@ local function SpawnEntity()
 			50, -- Shake start distance (from Entity to you)
 		},
 		Jumpscare = {
-			true, -- Enabled ('false' if you don't want jumpscare)
+			false, -- Enabled ('false' if you don't want jumpscare)
 			{
 				Image1 = "rbxassetid://11287256498", -- Image1 url
 				Image2 = "rbxassetid://11287256498", -- Image2 url
