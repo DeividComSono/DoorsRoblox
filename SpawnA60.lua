@@ -26,7 +26,7 @@ local function SpawnEntity()
 		},
 		CamShake = {
 			true, -- Enabled
-			{30, 30, 0.1, 1}, -- Shake values (don't change if you don't know)
+			{15, 15, 0.1, 1}, -- Shake values (don't change if you don't know)
 			50, -- Shake start distance (from Entity to you)
 		},
 		Jumpscare = {
