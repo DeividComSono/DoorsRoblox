@@ -12,7 +12,7 @@ local function SpawnEntity()
 		DelayTime = 1, -- Time before starting cycles (seconds)
 		HeightOffset = 0,
 		CanKill = true,
-		KillRange = 125,
+		KillRange = 75,
 		BreakLights = true,
 		BackwardsMovement = false,
 		FlickerLights = {
@@ -37,12 +37,10 @@ local function SpawnEntity()
 				Shake = true,
 				Sound1 = {
 					4903742660, -- SoundId
-					{ PlaybackSpeed = 4 },
 					{ Volume = 1 }, -- Sound properties
 				},
 				Sound2 = {
 					4903742660, -- SoundId
-					{ PlaybackSpeed = 4 },
 					{ Volume = 1 }, -- Sound properties
 				},
 				Flashing = {
