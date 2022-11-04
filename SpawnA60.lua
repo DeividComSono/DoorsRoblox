@@ -1,9 +1,13 @@
 local Creator = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors%20Entity%20Spawner/Source.lua"))()
 local tween = game:GetService("TweenService")
 
+local plr = game.Players.LocalPlayer
+local char = plr.Character
+
 getgenv().Death = false
 
 local function SpawnEntity()
+	if char:FindFirstChild("Spawner") then
 	tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.45}):Play()
 	local entity = Creator.createEntity({
 		CustomName = "A-60", -- Custom name of your entity
@@ -92,6 +96,7 @@ local function SpawnEntity()
 
 	-- Run the created entity
 	Creator.runEntity(entity)
+	end
 end
 
 local contextActionService = game:GetService("ContextActionService")
