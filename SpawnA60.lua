@@ -68,17 +68,25 @@ local function SpawnEntity()
 	end
 
 	entity.Debug.OnEntityDespawned = function(entityModel)
-		if getgenv().Death == false then
-			local Achievements = loadstring(game:HttpGet("https://raw.githubusercontent.com/RegularVynixu/Utilities/main/Doors/Custom%20Achievements/Source.lua"))()
-
-			Achievements.Get({
-   		 	Title = "Out of many Rebounds",
-   	 		Desc = "Might Come back or not",
-    		Reason = "Encounter and survive the rare Entity called A-60",
-    		Image = "https://static.wikia.nocookie.net/r-rooms/images/b/bf/SIXTYOVERLAP.png/revision/latest/scale-to-width-down/350?cb=20221018181132",
-			})
-		end
-		task.wait(1.5)
+		if getgenv().death == false then
+              getgenv().Title = "Out of many Rebounds" --Title Here
+              getgenv().Description = "Might Come back or not" --Description Here
+              getgenv().Reason = "Encounter and survive the rare Entity called A-60" --Reason Here
+              getgenv().BadgeId = 2129181688 --Replace Number with Your Badge ID
+              getgenv().Category = 10 --You can replace the Category or dont
+  
+              local Unlock = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Lobby.RemoteListener.Modules.AchievementUnlock)
+              local Achievements = debug.getupvalue(Unlock, 1)
+              for i,v in pairs(require(game:GetService("ReplicatedStorage").Achievements)) do
+                  v.Title = getgenv().Title
+                  v.Desc = getgenv().Description
+                  v.Reason = getgenv().Reason
+                  v.BadgeId = getgenv().BadgeId
+                  v.Category = getgenv().Category
+              end
+              Unlock(nil,"Join")
+			  end
+		task.wait(1)
 		tween:Create(game.Lighting.MainColorCorrection, TweenInfo.new(1), {Contrast = 0.1}):Play()
 	end
 
