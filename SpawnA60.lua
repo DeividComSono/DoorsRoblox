@@ -38,12 +38,12 @@ local function SpawnEntity()
 				Sound1 = {
 					4903742660, -- SoundId
 					{ PlaybackSpeed = 4 },
-					{ Volume = 0.3 }, -- Sound properties
+					{ Volume = 1 }, -- Sound properties
 				},
 				Sound2 = {
 					4903742660, -- SoundId
 					{ PlaybackSpeed = 4 },
-					{ Volume = 0.3 }, -- Sound properties
+					{ Volume = 1 }, -- Sound properties
 				},
 				Flashing = {
 					true, -- Enabled
