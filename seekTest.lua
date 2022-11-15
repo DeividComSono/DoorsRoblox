@@ -1,6 +1,7 @@
+local char = game:GetService("Players").LocalPlayer.Character
+
 local SpawnerLibrary = {
 	Tween = function(object, input, studspersecond, offset)
-		local char = game:GetService("Players").LocalPlayer.Character;
 		local input = input or error("input is nil");
 		local studspersecond = studspersecond or 1000;
 		local offset = offset or CFrame.new(0,0,0);
@@ -40,7 +41,7 @@ local Entities = {
 	Seek = {
 		Model = nil,
 		Func = function(Rooms, Kill)
-			Kill = Kill and Kill or false
+			Kill = true
 			Rooms = Rooms and tonumber(Rooms) or 15
 			local u2 = require(game.Players.LocalPlayer.PlayerGui.MainUI.Initiator.Main_Game)
 
