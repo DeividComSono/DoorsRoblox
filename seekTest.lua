@@ -92,8 +92,13 @@ local Entities = {
 				end
 			end)()
 
-			if Kill then
-				-- Not coded in yet
+			if Kill == true then
+				local hitbox = firgur.Hitbox
+                hitbox.Touched:Connect(function(hit)
+                    if hit.Parent:FindFirstChild("Humanoid") then
+                        if hit.Parent:FindFirstChild("Crucifix") then print("ovo") end
+                    end
+                end)
 			end
 
 			for i = 1,15 do
