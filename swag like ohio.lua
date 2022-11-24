@@ -292,23 +292,22 @@ Creator.runEntity = function(entity)
                     if entity.Config.CanKill and not Plr.GetAttribute(Plr, "justHidden") and not shouldDeflect() then
                         Connections[entity.Model].Movement:Disconnect()
         
-                        -- Jumpscare
-        
-                        if entity.Config.Jumpscare[1] then
-                            Creator.runJumpscare(entity.Config.Jumpscare[2])
-                        end
-        
                         -- Death handling + custom dialog
                         
                         Hum.Health = 0
                         entity.Debug.OnDeath(entity)
 
-                        if #entity.Config.CustomDialog > 0 then
-                            SS.DeadHint:Play()
-                            MainGui.DeadHint.ImageLabel.TextLabel.Text = "Ovo te matar"
-                            MainGui.DeadHint.Visible = true
-                            wait(10)
-                            MainGui.DeadHint.Visible = false
+                        -- Jumpscare
+
+                        if entity.Config.Jumpscare[1] then
+                            Creator.runJumpscare(entity.Config.Jumpscare[2])
+                            if #entity.Config.CustomDialog > 0 then
+                                SS.DeadHint:Play()
+                                MainGui.DeadHint.ImageLabel.TextLabel.Text = "Ovo te matar"
+                                MainGui.DeadHint.Visible = true
+                                wait(10)
+                                MainGui.DeadHint.Visible = false
+                            end
                         end
                     end
                 end
