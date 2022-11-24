@@ -359,7 +359,7 @@ end
 Creator.runJumpscare = function(config)
     -- Pre-setup
 
-    local image1 = config.Image1
+    local image1 = LoadCustomAsset(config.Image1)
     local sound1 = nil
 
     Char:SetPrimaryPartCFrame(CFrame.new(0, 9e9, 0))
@@ -406,7 +406,7 @@ Creator.runJumpscare = function(config)
     Shadow.ImageTransparency = 0.1
     TS:Create(Shadow, TweenInfo.new(2), {ImageTransparency = 0.1}):Play()
     task.wait(0.2)
-    v35.Jumpscares[newFrame]:Play()
+    --v35.Jumpscares[newFrame]:Play()
     Face:TweenSize(UDim2.new(1.5, 0, 1.5, 0), Enum.EasingDirection.In, Enum.EasingStyle.Bounce, 1, true)
 
     task.wait(1 + 0.2)
