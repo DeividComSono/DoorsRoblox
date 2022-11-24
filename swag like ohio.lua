@@ -398,6 +398,7 @@ Creator.runJumpscare = function(config)
     Shadow.Position = UDim2.new(0, 0, 0, 0)
     Shadow.Size = UDim2.new(1, 0, 1, 0)
     Shadow.Image = "rbxassetid://11597964335"
+    Shadow.ImageTransparency = 1
 
 
     Shadow.Parent = Background
@@ -407,8 +408,9 @@ Creator.runJumpscare = function(config)
 
     -- Scare
 
-
-    sound1:Play()
+    if sound1 then
+        sound1:Play()
+    end
     TS:Create(Shadow, TweenInfo.new(2), {ImageTransparency = 0.1}):Play()
     task.wait(0.2)
     Face:TweenSize(UDim2.new(1.5, 0, 1.5, 0), Enum.EasingDirection.In, Enum.EasingStyle.Bounce, 1, true)
