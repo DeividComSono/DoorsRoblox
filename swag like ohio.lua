@@ -303,7 +303,7 @@ Creator.runEntity = function(entity)
                             Creator.runJumpscare(entity.Config.Jumpscare[2])
                             if #entity.Config.CustomDialog > 0 then
                                 SS.DeadHint:Play()
-                                MainGui.DeadHint.ImageLabel.TextLabel.Text = entity.Config.CustomDialog
+                                MainGui.DeadHint.ImageLabel.TextLabel.Text = tostring(entity.Config.CustomDialog)
                                 MainGui.DeadHint.Visible = true
                                 wait(10)
                                 MainGui.DeadHint.Visible = false
