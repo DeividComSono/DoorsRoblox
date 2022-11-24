@@ -359,7 +359,7 @@ end
 Creator.runJumpscare = function(config)
     -- Pre-setup
 
-    local image1 = LoadCustomAsset(config.Image1)
+    local image1 = config.Image1
     local sound1 = nil
 
     Char:SetPrimaryPartCFrame(CFrame.new(0, 9e9, 0))
