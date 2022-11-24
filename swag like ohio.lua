@@ -302,6 +302,14 @@ Creator.runEntity = function(entity)
                         
                         Hum.Health = 0
                         entity.Debug.OnDeath(entity)
+
+                        if #entity.Config.CustomDialog > 0 then
+                            SS.DeadHint:Play()
+                            MainGui.DeadHint.ImageLabel.TextLabel.Text = "Ovo te matar"
+                            MainGui.DeadHint.Visible = true
+                            wait(10)
+                            MainGui.DeadHint.Visible = false
+                        end
                     end
                 end
             end
@@ -437,13 +445,6 @@ Creator.runJumpscare = function(config)
     task.wait(3)
     DeadGui.Visible = false
     DeadGui.DiedText.Size = UDim2.new(5, 0, 5, 0)
-    if #entity.CustomDialog > 0 then
-        SS.DeadHint:Play()
-        MainGui.DeadHint.ImageLabel.TextLabel.Text = "Ovo te matar"
-        MainGui.DeadHint.Visible = true
-        wait(10)
-        MainGui.DeadHint.Visible = false
-    end
 end
 
 -- Scripts
