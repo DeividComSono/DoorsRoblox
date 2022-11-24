@@ -360,8 +360,7 @@ Creator.runJumpscare = function(config)
     -- Pre-setup
 
     local image1 = LoadCustomAsset(config.Image1)
-    local image2 = LoadCustomAsset(config.Image2)
-    local sound1, sound2 = nil, nil
+    local sound1 = nil
 
     Char:SetPrimaryPartCFrame(CFrame.new(0, 9e9, 0))
 
@@ -376,7 +375,7 @@ Creator.runJumpscare = function(config)
     JumpscareGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
     Background.Name = "Background"
-    Background.BackgroundColor3 = Color3.fromRGB(0, 0, 0)
+    Background.BackgroundColor3 = Color3.fromRGB(18, 18, 18)
     Background.BorderSizePixel = 0
     Background.Size = UDim2.new(1, 0, 1, 0)
     Background.ZIndex = 999
@@ -386,51 +385,14 @@ Creator.runJumpscare = function(config)
     Face.BackgroundTransparency = 1
     Face.Position = UDim2.new(0.5, 0, 0.5, 0)
     Face.ResampleMode = Enum.ResamplerMode.Pixelated
-    Face.Size = UDim2.new(0, 150, 0, 150)
+    Face.Size = UDim2.new(0, 0, 0, 0)
     Face.Image = image1
 
     Face.Parent = Background
     Background.Parent = JumpscareGui
     JumpscareGui.Parent = CG
 
-    -- Tease
-
-    if config.Tease[1] then
-        if typeof(config.Sound1) == "table" then
-            sound1 = playSound(config.Sound1[1], config.Sound1[2])
-        end
-
-        local rdmTease = math.random(config.Tease.Min, config.Tease.Max)
-
-        for _ = config.Tease.Min, rdmTease do
-            task.wait(math.random(100, 200) / 100)
-
-            local growFactor = (MaxTeaseSize - MinTeaseSize) / rdmTease
-            Face.Size = UDim2.new(0, Face.AbsoluteSize.X + growFactor, 0, Face.AbsoluteSize.Y + growFactor)
-        end
-        
-        task.wait(math.random(100, 200) / 100)
-    end
-
     -- Scare
-
-    if config.Flashing[1] then
-        task.spawn(function()
-            while JumpscareGui.Parent do
-                Background.BackgroundColor3 = config.Flashing[2]
-                task.wait(math.random(25, 100) / 1000)
-                Background.BackgroundColor3 = Color3.new(0, 0, 0)
-                task.wait(math.random(25, 100) / 1000)
-            end
-        end)
-    end
-
-    if typeof(config.Sound2) == "table" then
-        sound2 = playSound(config.Sound2[1], config.Sound2[2])
-    end
-
-    Face.Image = image2
-    Face.Size = UDim2.new(0, 750, 0, 750)
 
     TS:Create(Face, TweenInfo.new(0.75), { Size = UDim2.new(0, 2000, 0, 2000), ImageTransparency = 0.5 }):Play()
     task.wait(0.75)
@@ -438,10 +400,6 @@ Creator.runJumpscare = function(config)
 
     if sound1 then
         sound1:Stop()
-    end
-
-    if sound2 then
-        sound2:Stop()
     end
 end
 
