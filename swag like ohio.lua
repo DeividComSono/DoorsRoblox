@@ -360,7 +360,12 @@ Creator.runJumpscare = function(config)
     -- Pre-setup
 
     local image1 = LoadCustomAsset(config.Image1)
+    local shadowcolor1 = nil
     local sound1 = nil
+
+    if config.ShadowColor then
+        shadowcolor1 = config.ShadowColor
+    end
 
     if config.Sound1 then
         sound1 = loadSound(config.Sound1[1])
@@ -398,6 +403,7 @@ Creator.runJumpscare = function(config)
     Shadow.Position = UDim2.new(0, 0, 0, 0)
     Shadow.Size = UDim2.new(1, 0, 1, 0)
     Shadow.Image = "rbxassetid://11597964335"
+    Shadow.ImageColor3 = shadowcolor1
     Shadow.ImageTransparency = 1
 
 
