@@ -1,6 +1,7 @@
 -- Services
 
 local Players = game:GetService("Players")
+local SS = game:GetService("SoundService")
 local RS = game:GetService("RunService")
 local ReSt = game:GetService("ReplicatedStorage")
 local CG = game:GetService("CoreGui")
@@ -13,6 +14,8 @@ local Char = Plr.Character or Plr.CharacterAdded:Wait()
 local Root = Char:WaitForChild("HumanoidRootPart")
 local Hum = Char:WaitForChild("Humanoid")
 local Camera = workspace.CurrentCamera
+
+local MainGui = Plr.PlayerGui.MainGUI
 
 local FindPartOnRayWithIgnoreList = workspace.FindPartOnRayWithIgnoreList
 local WorldToViewportPoint = Camera.WorldToViewportPoint
@@ -299,10 +302,6 @@ Creator.runEntity = function(entity)
                         
                         Hum.Health = 0
                         entity.Debug.OnDeath(entity)
-        
-                        if #entity.Config.CustomDialog > 0 then
-                            Plr.PlayerGui.MainGUI.DeadHint.ImageLabel.TextLabel.Text = entity.Config.CustomDialog
-                        end
                     end
                 end
             end
@@ -365,6 +364,8 @@ Creator.runJumpscare = function(config)
 
     if config.ShadowColor then
         shadowcolor1 = config.ShadowColor
+    else
+        shadowcolor1 = Color3.fromRGB(255, 255, 255)
     end
 
     if config.Sound1 then
@@ -395,6 +396,7 @@ Creator.runJumpscare = function(config)
     Face.BackgroundTransparency = 1
     Face.Position = UDim2.new(0.5, 0, 0.5, 0)
     Face.ResampleMode = Enum.ResamplerMode.Pixelated
+    Face.ScaleType = 3
     Face.Size = UDim2.new(0, 0, 0, 0)
     Face.Image = image1
 
@@ -426,6 +428,21 @@ Creator.runJumpscare = function(config)
 
     if sound1 then
         sound1:Stop()
+    end
+    local DeadGui = MainGui.Jumpscares.Dead
+    DeadGui.Visible = true
+    SS.VFX.YouDied:Play()
+    task.wait(0.2)
+    DeadGui.DiedText:TweenSize(UDim2.new(0.3, 0, 0.3, 0), Enum.EasingDirection.In, Enum.EasingStyle.Quad, 0.3, true)
+    task.wait(3)
+    DeadGui.Visible = false
+    DeadGui.DiedText.Size = UDim2.new(5, 0, 5, 0)
+    if #entity.Config.CustomDialog > 0 then
+        SS.DeadHint:Play()
+        MainGui.DeadHint.ImageLabel.TextLabel.Text = "Ovo te matar"
+        MainGui.DeadHint.Visible = true
+        wait(10)
+        MainGui.DeadHint.Visible = false
     end
 end
 
