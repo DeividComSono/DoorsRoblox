@@ -286,7 +286,7 @@ Creator.runEntity = function(entity)
 
                     -- Killing
         
-                    if entity.Config.CanKill and not Char.GetAttribute(Char, "Hiding") and not shouldDeflect() then
+                    if entity.Config.CanKill and not Plr.GetAttribute(Plr, "justHidden") and not shouldDeflect() then
                         Connections[entity.Model].Movement:Disconnect()
         
                         -- Jumpscare
@@ -301,9 +301,7 @@ Creator.runEntity = function(entity)
                         entity.Debug.OnDeath(entity)
         
                         if #entity.Config.CustomDialog > 0 then
-                            ReSt.GameStats["Player_".. Plr.Name].Total.DeathCause.Value = entity.Model.Name
-        
-                            debug.setupvalue(getconnections(ReSt.Bricks.DeathHint.OnClientEvent)[1].Function, 1, entity.Config.CustomDialog)
+                            Plr.PlayerGui.MainGUI.DeadHint.ImageLabel.TextLabel.Text = entity.Config.CustomDialog
                         end
                     end
                 end
