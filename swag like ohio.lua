@@ -363,7 +363,7 @@ Creator.runJumpscare = function(config)
     local sound1 = nil
 
     if config.Sound1 then
-        sound1 = loadSound(config.Sound1)
+        sound1 = loadSound(config.Sound1[1])
     end
 
     Char:SetPrimaryPartCFrame(CFrame.new(0, 9e9, 0))
