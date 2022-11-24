@@ -369,6 +369,7 @@ Creator.runJumpscare = function(config)
     local JumpscareGui = Instance.new("ScreenGui")
     local Background = Instance.new("Frame")
     local Face = Instance.new("ImageLabel")
+    local Shadow = Instance.new("ImageLabel")
 
     JumpscareGui.Name = "JumpscareGui"
     JumpscareGui.IgnoreGuiInset = true
@@ -388,14 +389,27 @@ Creator.runJumpscare = function(config)
     Face.Size = UDim2.new(0, 0, 0, 0)
     Face.Image = image1
 
+    Shadow.Name = "Shadow"
+    Shadow.BackgroundTransparency = 1
+    Shadow.Position = UDim2.new(0, 0, 0, 0)
+    Shadow.Size = UDim2.new(1, 0, 1, 0)
+    Shadow.Image = "rbxassetid://11597964335"
+
+
+    Shadow.Parent = Background
     Face.Parent = Background
     Background.Parent = JumpscareGui
     JumpscareGui.Parent = CG
 
     -- Scare
 
-    TS:Create(Face, TweenInfo.new(0.75), { Size = UDim2.new(0, 2000, 0, 2000), ImageTransparency = 0.5 }):Play()
-    task.wait(0.75)
+    Shadow.ImageTransparency = 0.1
+    TS:Create(Shadow, TweenInfo.new(2), {ImageTransparency = 0.1}):Play()
+    task.wait(0.2)
+    v35.Jumpscares[newFrame]:Play()
+    Face:TweenSize(UDim2.new(1.5, 0, 1.5, 0), Enum.EasingDirection.In, Enum.EasingStyle.Bounce, 1, true)
+
+    task.wait(1 + 0.2)
     JumpscareGui:Destroy()
 
     if sound1 then
