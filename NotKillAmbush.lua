@@ -7,11 +7,11 @@ local entity = Creator.createEntity({
 		DelayTime = 3, -- Time before starting cycles (seconds)
 		HeightOffset = 0,
 		CanKill = _G.EntityCanKill,
-		KillRange = 150,
-		BreakLights = true,
-     BackwardsMovement = false,
+		KillRange = 100,
+		BreakLights = _G.EntityBreakLights,
+     		BackwardsMovement = _G.EntityBackwardsMovement,
 		FlickerLights = {
-			true, -- Enabled
+			_G.EntityFlickLights, -- Enabled
 			1, -- Time (seconds)
 		},
 		Cycles = {
