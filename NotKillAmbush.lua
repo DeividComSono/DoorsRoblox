@@ -6,7 +6,7 @@ local entity = Creator.createEntity({
 		Speed = 360, -- Percentage, 120 = default Rush speed 360 = default Ambush speed
 		DelayTime = 3, -- Time before starting cycles (seconds)
 		HeightOffset = 0,
-		CanKill = false,
+		CanKill = _G.EntityCanKill,
 		KillRange = 150,
 		BreakLights = true,
      BackwardsMovement = false,
