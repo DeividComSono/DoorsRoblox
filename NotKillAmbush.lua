@@ -31,11 +31,11 @@ local entity = Creator.createEntity({
 				Image2 = "rbxassetid://10722835155",
 				Shake = false,
 				Sound1 = {
-					10483790459,
+					8880765497,
 					{ Volume = 0.5 },
 				},
 				Sound2 = {
-					10483837590,
+					9045199073,
 					{ Volume = 0.5 },
 				},
 				Flashing = {
@@ -43,9 +43,9 @@ local entity = Creator.createEntity({
 					Color3.fromRGB(255, 255, 255),
 				},
 				Tease = {
-					false,
+					true,
 					Min = 1,
-					Max = 3,
+					Max = 1,
 				},
 			},
 		},
