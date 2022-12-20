@@ -27,9 +27,9 @@ local entity = Creator.createEntity({
 		Jumpscare = {
 			true, -- Enabled ('false' if you don't want jumpscare)
 			{
-				Image1 = "rbxassetid://10483855823",
-				Image2 = "rbxassetid://10483855823",
-				Shake = true,
+				Image1 = "rbxassetid://10722835155",
+				Image2 = "rbxassetid://10722835155",
+				Shake = false,
 				Sound1 = {
 					10483790459,
 					{ Volume = 0.5 },
@@ -39,7 +39,7 @@ local entity = Creator.createEntity({
 					{ Volume = 0.5 },
 				},
 				Flashing = {
-					false, -- Enabled
+					true, -- Enabled
 					Color3.fromRGB(255, 255, 255),
 				},
 				Tease = {
@@ -49,7 +49,7 @@ local entity = Creator.createEntity({
 				},
 			},
 		},
-		CustomDialog = {"lol"}
+		CustomDialog = {"You died to Ambush.", "You might need to hop in and out of your hiding stop a couple of times."}
 	})
 
 	entity.Debug.OnEntitySpawned = function(entityModel)
